@@ -2,13 +2,17 @@ package ar.com.telecom.iot.tuyacustommethodsdkapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.tuya.iotapp.componet.TuyaIoTSDK;
+import com.tuya.iotapp.jsonparser.api.JsonParser;
 import com.tuya.iotapp.network.api.RegionHostConst;
+import com.tuya.iotapp.network.interceptor.token.AccessTokenManager;
+import com.tuya.iotapp.network.interceptor.token.bean.TokenBean;
 import com.tuya.iotapp.network.response.BizResponse;
 import com.tuya.iotapp.network.response.ResultListener;
 import com.tuya.iotapp.user.api.TYUserManager;
@@ -29,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
 
         TuyaIoTSDK.builder().init(this.getApplication(),
-                        "fwxxhwmkqsacr57ex5gx","5897ea58ab674278a62584c98fde9f10")
+                        "f8g5k8f4hcpt4rcqcxfh","53a9c9f847184619915cdf0bb042af76")
                 .hostConfig(RegionHostConst.REGION_HOST_US)
                 .debug(true)
                 .build();
@@ -54,7 +58,12 @@ public class MainActivity extends AppCompatActivity {
                             //Toast message and Log
                             Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
                             System.out.println("Login Success");
-
+                            String convertString = JsonParser.convertUnderLineToHump(bizResponse.getResult().toString());
+                            TokenBean tokenBean = JsonParser.parseAny(convertString, TokenBean.class);
+                            // Store Token
+                            AccessTokenManager.INSTANCE.storeInfo(tokenBean, bizResponse.getT());
+                            //start activity UserMenu
+                            startActivity(new Intent(MainActivity.this, UserMenu.class));
 
 
 
@@ -68,4 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 }

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4A4A68"
+    tools:context=".UserMenu">
+
+    <ImageView
+        android:id="@+id/tecoLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/telecomlogo" />
+
+    <TextView
+        android:id="@+id/lblTituloApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Custom Method APP\n User Menu"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tecoLogo" />
+
+    <Button
+        android:id="@+id/btnDevicePairing"
+        android:layout_width="267dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="48dp"
+        android:text="Device Pairing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblTituloApp" />
+
+    <Button
+        android:id="@+id/btnQueryAssets"
+        android:layout_width="232dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="16dp"
+        android:text="Query authorized assets for users"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDevicePairing" />
+
+    <Button
+        android:id="@+id/btnClearAssetID"
+        android:layout_width="58dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="20dp"
+        android:text="🗑️"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toEndOf="@+id/btnQueryAssets"
+        app:layout_constraintTop_toBottomOf="@+id/btnDevicePairing" />
+
+    <TextView
+        android:id="@+id/lblSelectedAsset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Selected asset: none"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnQueryAssets" />
+
+
+    <Button
+        android:id="@+id/btnQueryDevicesByAssets"
+        android:layout_width="232dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="80dp"
+        android:text="Query devices of a specific asset on pages"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnQueryAssets" />
+
+    <Button
+        android:id="@+id/btnControlDevice"
+        android:layout_width="58dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="44dp"
+        android:text="💡️"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnQueryDevicesByAssets"
+        app:layout_constraintTop_toBottomOf="@+id/lblSelectedAsset" />
+
+    <TextView
+        android:id="@+id/lblResponses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Responses: none"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnQueryDevicesByAssets" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
